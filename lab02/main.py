@@ -72,10 +72,15 @@ def softmax(data):
 def main():
     image = cv2.imread('./Cat.png')
     data = numpy.transpose(image, (2, 1, 0))
+    print('Shape: {}'.format(data.shape))
     data = convolution(data, numpy.random.rand(5, 3, 3, 3))
+    print('Shape: {}'.format(data.shape))
     data = normalize(data, numpy.random.uniform(2, 8, data.shape), numpy.random.uniform(2, 8, data.shape))
+    print('Shape: {}'.format(data.shape))
     data = max_pooling(data)
+    print('Shape: {}'.format(data.shape))
     prediction = softmax(data)
+    print('Shape: {}'.format(prediction.shape))
 
 
 if __name__ == '__main__':
